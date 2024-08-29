@@ -47,7 +47,6 @@ Bifs = {Bif2};
 pdes = {pde2};
 lw = 1;
 greyscale = [0 0 0; 1 1 1; 0.75 0.75 0.75];
-titles = {'2 Species'};
 xlims = [1e-2 1e4];
 ylims = [1e-4 1e1];
 clims = [0 1.5];
@@ -101,7 +100,6 @@ for i = 1:1
     ylabel('y')
 end
 
-labels = {'a', 'b'};
 for i = 1:1
     label(['{\bf' labels{i} '}'], [0.015 + (i - 1) * dx 2 * dy - 0.02 0.05 0.05]);
     label(['{\bf' labels{i + 1} '}'], [0.015 + (i - 1) * dx dy - 0.02 0.05 0.05]);
