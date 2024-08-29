@@ -96,8 +96,6 @@ for i = 1:1
     shading flat
     grid off
     view([0 90])
-    xlabel('x')
-    ylabel('y')
 end
 
 for i = 1:1
