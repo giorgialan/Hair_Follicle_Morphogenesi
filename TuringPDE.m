@@ -2,12 +2,11 @@ function [space_x, concentration_u, concentration_v] = TuringPDE(total_time, sho
     fprintf('Running Turing model for %1.1f time units\n', total_time);
 
     k = 2; 
-    mu1 = 0.04;
-    mu2 = 0.01; 
+    mu = 0.04;
     lambda = 0.08;  
     rho1 = 3.37; 
     rho2 = 2; 
-    nc = 6; 
+    ks = 6; 
     Dx = 1; 
     Dy = 0.04;
 
@@ -39,9 +38,9 @@ function [space_x, concentration_u, concentration_v] = TuringPDE(total_time, sho
         laplacian_u = 4 * del2(concentration_u, dx);
         laplacian_v = 4 * del2(concentration_v, dx);
 
-        % Aggiornamento delle concentrazioni 
-        delta_u = dt * (-k * concentration_u .* concentration_v - 2 * mu2 * concentration_u.^2 + lambda + rho1 * rho2 * nc * concentration_v ./ (rho2 + rho1 * concentration_v) + Dx * laplacian_u);
-        delta_v = dt * (k * concentration_u .* concentration_v + 2 * mu2 * concentration_u.^2 - mu1 * concentration_v - rho1 * rho2 * nc * concentration_v ./ (rho2 + rho1 * concentration_v) + Dy * laplacian_v);
+        % Aggiornamento delle concentrazioni per il modello a 2 specie
+        delta_u = dt * (-k * concentration_u .* concentration_v - 2 * mu * concentration_u.^2 + lambda + rho1 * rho2 * ks * concentration_v ./ (rho2 + rho1 * concentration_v) + Dx * laplacian_u);
+        delta_v = dt * (k * concentration_u .* concentration_v + 2 * mu * concentration_u.^2 - mu * concentration_v - rho1 * rho2 * ks * concentration_v ./ (rho2 + rho1 * concentration_v) + Dy * laplacian_v);
 
         % Aggiornamento delle matrici delle concentrazioni
         concentration_u = concentration_u + delta_u;
