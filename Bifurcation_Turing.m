@@ -1,4 +1,4 @@
-function result = Bifurcation_Turing2(k, lambda, mu, rho1, rho2, Dx, Dy, qspace)
+function result = Bifurcation_Turing2(k, lambda, mu, rho1, rho2, ks, Dx, Dy, qspace)
 
     % Punto fisso per la variabile u
     u_lambda = (1 / k) * ( (rho2 / lambda) * (rho2 * mu^2 / rho1) - 1 );
