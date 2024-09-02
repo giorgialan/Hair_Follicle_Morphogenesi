@@ -1,19 +1,22 @@
-function result = Bifurcation_Turing(k, mu2, lambda, mu1, rho1, rho2, nc, Dx, Dy, qspace)
+function result = Bifurcation_Turing2(k, lambda, mu, rho1, rho2, Dx, Dy, qspace)
 
-    X_fixed = max([
-        (-k*lambda^2*rho1 - k*lambda*mu1*rho2 + sqrt(lambda) * sqrt(lambda*rho1 + mu1*rho2) * sqrt(k^2*lambda^2*rho1 + ...
-         8*mu2*lambda*mu1^2*rho1 + k^2*lambda*mu1*rho2 + 8*mu2*mu1^3*rho2 + 8*mu2*mu1^2*rho1*rho2*nc)) / (4 * (mu2 * ...
-         lambda*mu1*rho1 + mu2*mu1^2*rho2)),
-        (-k*lambda^2*rho1 - k*lambda*mu1*rho2 - sqrt(lambda) * sqrt(lambda*rho1 + mu1*rho2) * sqrt(k^2*lambda^2*rho1 + ...
-         8*mu2*lambda*mu1^2*rho1 + k^2*lambda*mu1*rho2 + 8*mu2*mu1^3*rho2 + 8*mu2*mu1^2*rho1*rho2*nc)) / (4 * (mu2 * ...
-         lambda*mu1*rho1 + mu2*mu1^2*rho2))
-    ]);
+    % Punto fisso per la variabile u
+    u_lambda = (1 / k) * ( (rho2 / lambda) * (rho2 * mu^2 / rho1) - 1 );
 
-    Y_fixed = lambda / mu1;
+    % Punto fisso per la variabile v
+    v_lambda = (rho2 * mu) / (rho1 * lambda * u_lambda);
+
+    % Calcolo della matrice Jacobiana
+    J11 = (2 * rho1 * u_lambda * v_lambda) / (1 + k * u_lambda^2)^2 - mu;
+    J12 = (rho1 * u_lambda^2 / (1 + k * u_lambda^2));
+
+    J21 = (2 * rho2 * u_lambda * v_lambda) / (1 + k * u_lambda^2)^2;
+
+    J22 = (rho2 * u_lambda^2 / (1 + k*u_lambda^2) - lambda);
 
     Jacobian = [
-        -k*Y_fixed - 4*mu2*X_fixed, -k*X_fixed - rho1^2*rho2*nc*Y_fixed / (rho2 + rho1*Y_fixed)^2 + rho1*rho2*nc / (rho2 + rho1*Y_fixed);
-        k*Y_fixed + 4*mu2*X_fixed, k*X_fixed - mu1 + rho1^2*rho2*nc*Y_fixed / (rho2 + rho1*Y_fixed)^2 - rho1*rho2*nc / (rho2 + rho1*Y_fixed)
+        J11, J12;
+        J21, J22
     ];
 
     Diffusion = [
