@@ -9,13 +9,11 @@ npoints = 200;
 fnameBif = ['Matfiles/TuringBifurcations' num2str(npoints) '.mat'];
 if compute || ~exist(fnameBif, 'file')
     k = 2; 
-    k2 = 0.2; 
-    mu2 = 0.01; 
     lambda = 0.08; 
-    mu1 = 0.04;
+    mu = 0.04;
     kspace = logspace(-2, 4, npoints);
+    rho1 = 3.37; 
     rho2 = 2; 
-    nc = 6; 
     Dx = 1;
     Dyspace = logspace(-4, 1, npoints);
     qspace = logspace(-5, 5, 200);
@@ -23,7 +21,7 @@ if compute || ~exist(fnameBif, 'file')
     V = meshgrid(Dyspace, Dyspace)';
 
     disp('Running 2 species')
-    raw2 = arrayfun(@(k6, Dy) Bifurcation_Turing(k, mu2, lambda, mu1, k6, rho2, nc, Dx, Dy, qspace), U, V);
+    raw2 = arrayfun(@(ks, Dy) Bifurcation_Turing2(k, ks, lambda, mu, rho1, rho2, Dx, Dy, qspace), U, V);
     Bif2 = reshape(raw2, npoints, npoints);
 
     mkdir Matfiles
