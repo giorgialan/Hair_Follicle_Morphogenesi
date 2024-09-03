@@ -20,7 +20,6 @@ if compute || ~exist(fnameBif, 'file')
     U = meshgrid(kspace, kspace);
     V = meshgrid(Dyspace, Dyspace)';
 
-    disp('Running 2 species')
     raw2 = arrayfun(@(ks, Dy) Bifurcation_Turing(k, ks, lambda, mu, rho1, rho2, Dx, Dy, qspace), U, V);
     Bif2 = reshape(raw2, npoints, npoints);
 
