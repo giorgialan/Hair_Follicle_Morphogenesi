@@ -7,12 +7,10 @@ function result = Bifurcation_Turing(k, lambda, mu, rho1, rho2, ks, Dx, Dy, qspa
     v_lambda = (rho2 * mu) / (rho1 * lambda * u_lambda);
 
     % Calcolo della matrice Jacobiana
-    J11 = (2 * rho1 * u_lambda * v_lambda) / (1 + k * u_lambda^2)^2 - mu;
-    J12 = (rho1 * u_lambda^2 / (1 + k * u_lambda^2));
-
-    J21 = (2 * rho2 * u_lambda * v_lambda) / (1 + k * u_lambda^2)^2;
-
-    J22 = (rho2 * u_lambda^2 / (1 + k*u_lambda^2) - lambda);
+    J11 = ( (-rho1^2 * lambda + 2 * rho2 * mu^2) * mu ) / (rho1^2 * lambda );
+    J12 = -rho1 * lambda / rho2;
+    J21 = 2 * rho2^2 * mu^3 / (rho1^3 * lambda);
+    J22 = -2 * lambda;
 
     Jacobian = [
         J11, J12;
