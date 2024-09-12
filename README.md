@@ -13,7 +13,9 @@ Il repository è suddiviso nelle seguenti principali componenti:
    - Le concentrazioni delle due specie chimiche coinvolte nel modello, l'attivatore u e l'inibitore v, evolvono nel tempo seguendo i meccanismi di reazione e diffusione.
    - La simulazione permette di osservare la formazione di pattern morfogenetici tipici di instabilità di Turing.
    - Vengono applicate condizioni al contorno periodiche per garantire la coerenza della simulazione su un dominio senza confini netti.
-   
+     
+   <img width="243" alt="1" src="https://github.com/user-attachments/assets/2683508b-f342-493e-93dd-d0bd0a354db8">
+
 2. **Analisi delle Biforcazioni** (Bifurcation_Turing.m):
    - Questa funzione svolge un'analisi della stabilità del sistema, calcolando i punti fissi delle variabili u e v e verificando la comparsa di instabilità di Turing.
    - La funzione valuta la matrice Jacobiana e analizza la relazione di dispersione per determinare le condizioni sotto cui le perturbazioni nelle concentrazioni si amplificano, portando alla formazione di pattern.
@@ -21,3 +23,4 @@ Il repository è suddiviso nelle seguenti principali componenti:
 
 L'obiettivo di questo codice è fornire uno strumento per lo studio numerico del processo di morfogenesi dei follicoli piliferi, simulando la formazione di pattern e analizzando le condizioni che portano a tali strutture. Il modello implementato può essere utilizzato per comprendere meglio come le instabilità di Turing contribuiscono alla formazione spontanea di pattern organizzati nei tessuti biologici, con applicazioni in biologia dello sviluppo, medicina rigenerativa e biologia dei sistemi.
 
+<img width="464" alt="d2lambda" src="https://github.com/user-attachments/assets/6447775f-602d-4e59-bc06-9e61ef987848">
