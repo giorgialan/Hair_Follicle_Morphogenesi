@@ -33,9 +33,7 @@ function result = Bifurcation_Turing(k, lambda, mu, rho1, rho2, ks, Dx, Dy, qspa
         result = 0; % Modello che mostra pattern
     elseif StableWithoutDiffusion && (~NoiseAmplifying) && (~PositiveForSomeK)
         result = 1; % Sempre stabile
-    elseif StableWithoutDiffusion && NoiseAmplifying
-        result = 2; % Amplificazione del rumore
     elseif ~StableWithoutDiffusion
-        result = 3; % Instabile
+        result = 2; % Instabile
     end
 end
