@@ -35,10 +35,10 @@ function [space_x, concentration_u, concentration_v] = TuringPDE(total_time, sho
 
     while current_time < total_time
         % Calcolo delle derivate spaziali
-        laplacian_u = 4 * del2(concentration_u, dx);
-        laplacian_v = 4 * del2(concentration_v, dx);
+        laplacian_u = del2(concentration_u, dx);
+        laplacian_v = del2(concentration_v, dx);
 
-        % Aggiornamento delle concentrazioni per il modello a 2 specie
+        % Aggiornamento delle concentrazioni
         delta_u = dt * (-k * concentration_u .* concentration_v - 2 * mu * concentration_u.^2 + lambda + rho1 * rho2 * ks * concentration_v ./ (rho2 + rho1 * concentration_v) + Dx * laplacian_u);
         delta_v = dt * (k * concentration_u .* concentration_v + 2 * mu * concentration_u.^2 - mu * concentration_v - rho1 * rho2 * ks * concentration_v ./ (rho2 + rho1 * concentration_v) + Dy * laplacian_v);
 
