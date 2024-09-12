@@ -23,5 +23,4 @@ Il repository è suddiviso nelle seguenti principali componenti:
    - Viene prodotto un diagramma di biforcazione che descrive le regioni di stabilità e di formazione di pattern spaziali nel piano dei parametri.
 
 L'obiettivo di questo codice è fornire uno strumento per lo studio numerico del processo di morfogenesi dei follicoli piliferi, simulando la formazione di pattern e analizzando le condizioni che portano a tali strutture. Il modello implementato può essere utilizzato per comprendere meglio come le instabilità di Turing contribuiscono alla formazione spontanea di pattern organizzati nei tessuti biologici, con applicazioni in biologia dello sviluppo, medicina rigenerativa e biologia dei sistemi.
-
 <img width="433" alt="Immagine 2024-09-12 111852" src="https://github.com/user-attachments/assets/2e3d5e97-d431-4bab-9b43-66c0c678cd19">
