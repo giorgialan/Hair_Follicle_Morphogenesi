@@ -5,7 +5,7 @@ clc
 plotting = 1;   
 compute = 1;   
 
-npoints = 200;
+npoints = 20;
 fnameBif = ['Matfiles/TuringBifurcations' num2str(npoints) '.mat'];
 if compute || ~exist(fnameBif, 'file')
     k = 2; 
@@ -29,7 +29,7 @@ else
     load(fnameBif)
 end
 
-T = 5000;
+T = 5;
 fnamePDE = ['Matfiles/TuringPDE' num2str(T) '.mat'];
 if compute || ~exist(fnamePDE, 'file')
     [x, concentration_u, concentration_v] = TuringPDE(T, plotting);
@@ -75,7 +75,7 @@ for i = 1:1
     grid off
     box off
     view([0 90])
-    title(titles{i})
+    %title(titles{i})
     hold on
     hs(1) = area([5 6], [100 200], 100, 'FaceColor', greyscale(2, :));
     hs(2) = area([5 6], [100 200], 100, 'FaceColor', greyscale(1, :));
@@ -93,11 +93,6 @@ for i = 1:1
     shading flat
     grid off
     view([0 90])
-end
-
-for i = 1:1
-    label(['{\bf' labels{i} '}'], [0.015 + (i - 1) * dx 2 * dy - 0.02 0.05 0.05]);
-    label(['{\bf' labels{i + 1} '}'], [0.015 + (i - 1) * dx dy - 0.02 0.05 0.05]);
 end
 
 if ~exist('Figures', 'dir')
