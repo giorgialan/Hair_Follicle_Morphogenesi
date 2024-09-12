@@ -1,7 +1,7 @@
 function result = Bifurcation_Turing(k, lambda, mu, rho1, rho2, ks, Dx, Dy, qspace)
 
     % Punto fisso per la variabile u
-    u_lambda = (1 / k) * ( (rho2 / lambda) * (rho2 * mu^2 / rho1) - 1 );
+    u_lambda = sqrt((1 / k) * ( (rho2 / lambda) * (rho2 * mu^2 / rho1) - 1 ));
 
     % Punto fisso per la variabile v
     v_lambda = (rho2 * mu) / (rho1 * lambda * u_lambda);
