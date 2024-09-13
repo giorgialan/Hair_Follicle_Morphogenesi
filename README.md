@@ -1,12 +1,13 @@
 # Hair_Follicle_Morphogenesi
 # Instabilità di Turing nella Morfogenesi del Follicolo Pilifero: Analisi di Stabilità e Biforcazione
 Questo repository contiene il codice Matlab utilizzato per la simulazione e l'analisi della formazione di pattern nei follicoli piliferi tramite il modello di reazione-diffusione di Turing. Il codice è stato sviluppato nell'ambito della tesina per il corso di **Modelli Matematici per la Biomedicina**, intitolata "Instabilità di Turing nella morfogenesi del follicolo pilifero: analisi di stabilità e biforcazione".
+Oltre al codice Matlab, il repository include un modello implementato su COMSOL Multiphysics che simula la formazione di pattern attraverso meccanismi di tipo Turing. 
 
 # Descrizione
 Il codice qui contenuto implementa un modello di morfogenesi basato su equazioni di reazione-diffusione. Questo modello permette di simulare l'insorgenza di pattern spaziali, come quelli che si osservano nei follicoli piliferi, attraverso il meccanismo dell'instabilità di Turing. Tale meccanismo descrive come piccole perturbazioni in un sistema omogeneo possano crescere e portare alla formazione di strutture ordinate, grazie all'interazione tra reazione chimica e diffusione.
 Le simulazioni condotte con questo codice mostrano come variando specifici parametri del sistema (ad esempio, i tassi di diffusione o le costanti di reazione), sia possibile passare da stati omogenei stabili a stati instabili caratterizzati da pattern ben definiti. Il codice esegue inoltre un'analisi delle biforcazioni del sistema, esplorando come la stabilità del modello cambi al variare di questi parametri e identificando le condizioni per l'insorgere di instabilità di Turing.
 
-# Struttura del Codice
+# Struttura del Codice Matlab
 Il repository è suddiviso nelle seguenti principali componenti:
 1. **Simulazione della PDE di Turing** (TuringPDE.m):
    - Questa funzione implementa la simulazione delle equazioni di reazione-diffusione su una griglia spaziale 2D. 
@@ -25,3 +26,6 @@ Il repository è suddiviso nelle seguenti principali componenti:
 L'obiettivo di questo codice è fornire uno strumento per lo studio numerico del processo di morfogenesi dei follicoli piliferi, simulando la formazione di pattern e analizzando le condizioni che portano a tali strutture. Il modello implementato può essere utilizzato per comprendere meglio come le instabilità di Turing contribuiscono alla formazione spontanea di pattern organizzati nei tessuti biologici, con applicazioni in biologia dello sviluppo, medicina rigenerativa e biologia dei sistemi.
 
 <img width="433" alt="Immagine 2024-09-12 111852" src="https://github.com/user-attachments/assets/2e3d5e97-d431-4bab-9b43-66c0c678cd19">
+
+# Struttura del Codice COMSOL Multiphysics
+Utilizzando COMSOL, vengono risolte le equazioni di reazione-diffusione attraverso l'interfaccia 'Coefficient form PDE', utilizzando variabili dipendenti per l'attivatore 'a' e l'inibitore 'h'. Inoltre, viene utilizzata una 'Random function' per introdurre rumore nelle condizioni iniziali, al fine di simulare realisticamente la formazione di pattern.
