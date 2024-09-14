@@ -25,7 +25,8 @@ Il repository è suddiviso nelle seguenti principali componenti:
 
 L'obiettivo di questo codice è fornire uno strumento per lo studio numerico del processo di morfogenesi dei follicoli piliferi, simulando la formazione di pattern e analizzando le condizioni che portano a tali strutture. Il modello implementato può essere utilizzato per comprendere meglio come le instabilità di Turing contribuiscono alla formazione spontanea di pattern organizzati nei tessuti biologici, con applicazioni in biologia dello sviluppo, medicina rigenerativa e biologia dei sistemi.
 
-<img width="433" alt="Immagine 2024-09-12 111852" src="https://github.com/user-attachments/assets/2e3d5e97-d431-4bab-9b43-66c0c678cd19">
+<img width="241" alt="blah" src="https://github.com/user-attachments/assets/7172dadb-3c85-4885-8ef3-2f17bdb4d05c">
+
 
 # Struttura del Codice COMSOL Multiphysics
 Utilizzando COMSOL, vengono risolte le equazioni di reazione-diffusione attraverso l'interfaccia 'Coefficient form PDE', utilizzando variabili dipendenti per l'attivatore 'a' e l'inibitore 'h'. Inoltre, viene utilizzata una 'Random function' per introdurre rumore nelle condizioni iniziali, al fine di simulare realisticamente la formazione di pattern.
