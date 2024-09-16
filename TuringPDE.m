@@ -39,8 +39,8 @@ function [space_x, concentration_u, concentration_v] = TuringPDE(total_time, sho
         laplacian_v = del2(concentration_v, dx);
 
         % Aggiornamento delle concentrazioni
-        delta_u = dt * (Dx * laplacian_u - k * concentration_u .* concentration_v - 2 * mu * concentration_u.^2 + lambda + rho1 * rho2 * ks * concentration_v ./ (rho2 + rho1 * concentration_v));
-        delta_v = dt * (+ Dy * laplacian_v + k * concentration_u .* concentration_v + 2 * mu * concentration_u.^2 - mu * concentration_v - rho1 * rho2 * ks * concentration_v ./ (rho2 + rho1 * concentration_v));
+        delta_u = dt * (Dx * laplacian_u + (rho1 * concentration_u.^2) ./ (concentration_v .* (1 + k * concentration_u.^2)) - mu * concentration_u);
+        delta_v = dt * (Dy * laplacian_v + (rho2 * concentration_u.^2) ./ (concentration_v .* (1 + k * concentration_u.^2)) - lambda * concentration_v);
 
         % Aggiornamento delle matrici delle concentrazioni
         concentration_u = concentration_u + delta_u;
