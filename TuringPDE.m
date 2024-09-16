@@ -10,7 +10,7 @@ function [space_x, concentration_u, concentration_v] = TuringPDE(total_time, sho
     Dx = 1; 
     Dy = 0.04;
 
-    initial_u = 2.3069;
+    initial_u = 2.3;
     initial_v = 2;
 
     dx = 0.1; 
