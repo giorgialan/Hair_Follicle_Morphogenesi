@@ -11,20 +11,20 @@ if compute || ~exist(fnameBif, 'file')
     k = 2; 
     lambda = 0.08; 
     mu = 0.04;
-    kspace = logspace(-2, 4, npoints);
+    rspace = logspace(-2, 4, npoints);
     rho1 = 3.37; 
-    rho2 = 2; 
+    gamma = 2; 
     Dx = 1;
     Dyspace = logspace(-4, 1, npoints);
     qspace = logspace(-5, 5, 200);
-    U = meshgrid(kspace, kspace);
+    U = meshgrid(rspace, rspace);
     V = meshgrid(Dyspace, Dyspace)';
 
-    raw2 = arrayfun(@(ks, Dy) Bifurcation_Turing(k, ks, lambda, mu, rho1, rho2, Dx, Dy, qspace), U, V);
+    raw2 = arrayfun(@(rho2, Dy) Bifurcation_Turing(k, lambda, mu, rho1, rho2, gamma, Dx, Dy, qspace), U, V);
     Bif2 = reshape(raw2, npoints, npoints);
 
     mkdir Matfiles
-    save(fnameBif, 'qspace', 'kspace', 'Dyspace', 'Bif2')
+    save(fnameBif, 'qspace', 'rspace', 'Dyspace', 'Bif2')
 else
     load(fnameBif)
 end
@@ -66,7 +66,7 @@ for i = 1:1
     ax(i) = subplot('position', [left bottom + dy width height]);
     area([5 6], [100 200], 100, 'FaceColor', 'w')
     hold on
-    surf(kspace, Dyspace, Bifs{i})
+    surf(rspace, Dyspace, Bifs{i})
     set(gca, 'Xtick', 10.^(-2:2:4), 'Yscale', 'log', 'Ydir', 'reverse', 'Xscale', 'log', 'layer', 'top', 'LineWidth', lw, 'tickdir', 'out');
     colormap(ax(i), greyscale)
     axis([xlims ylims])
