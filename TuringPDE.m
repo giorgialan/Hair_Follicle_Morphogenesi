@@ -6,7 +6,6 @@ function [space_x, concentration_u, concentration_v] = TuringPDE(total_time, sho
     lambda = 0.08;  
     rho1 = 3.37; 
     rho2 = 2; 
-    ks = 6; 
     Dx = 1; 
     Dy = 0.04;
 
